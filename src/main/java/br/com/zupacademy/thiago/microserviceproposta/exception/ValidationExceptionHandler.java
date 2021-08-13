@@ -23,6 +23,14 @@ public class ValidationExceptionHandler {
 	private MessageSource messageSource;
 	
 
+	@ExceptionHandler(UnprocessableEntityException.class)
+	public ResponseEntity<StandardError> forbiddenAction(UnprocessableEntityException e,
+			HttpServletRequest request) {
+
+		StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.UNPROCESSABLE_ENTITY.value(), e.getMessage(), request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(err);
+	}
+	
 	@ExceptionHandler(ForbiddenActionException.class)
 	public ResponseEntity<StandardError> forbiddenAction(ForbiddenActionException e,
 			HttpServletRequest request) {
