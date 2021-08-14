@@ -16,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.com.zupacademy.thiago.microserviceproposta.controller.form.NovaPropostaForm;
 import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
 import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaRepository;
+import br.com.zupacademy.thiago.microserviceproposta.service.AnaliseFinanceira;
 
 @RestController
 @RequestMapping("/propostas")
@@ -23,12 +24,17 @@ public class PropostaController {
 	
 	@Autowired
 	private PropostaRepository repository;
+	
+	@Autowired
+	private AnaliseFinanceira analiseFinanceira;
 
 	@PostMapping
 	@Transactional
 	public ResponseEntity<?> cria(@RequestBody @Valid NovaPropostaForm form){
 		Proposta proposta = form.toModel(repository);
 		repository.save(proposta);
+		analiseFinanceira.processa(proposta);
+
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(proposta.getId()).toUri();
 		
 		return ResponseEntity.created(uri).build();	

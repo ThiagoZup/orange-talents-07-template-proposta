@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +14,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+
+import br.com.zupacademy.thiago.microserviceproposta.model.enums.ResultadoSolicitacao;
 
 @Entity
 public class Proposta {
@@ -33,6 +37,9 @@ public class Proposta {
 	@NotNull
 	@Positive
 	private BigDecimal salario;
+	
+	@Enumerated(EnumType.STRING)
+	private ResultadoSolicitacao resultadoSolicitacao;
 	
 	@Embedded
 	private Endereco endereco;
@@ -66,15 +73,23 @@ public class Proposta {
 	public String getNome() {
 		return nome;
 	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
+	
 	public BigDecimal getSalario() {
 		return salario;
 	}
 
+	public ResultadoSolicitacao getResultadoSolicitacao() {
+		return resultadoSolicitacao;
+	}
+
+	public void setResultadoSolicitacao(ResultadoSolicitacao resultadoSolicitacao) {
+		this.resultadoSolicitacao = resultadoSolicitacao;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
