@@ -1,5 +1,5 @@
 package br.com.zupacademy.thiago.microserviceproposta.model.enums;
 
-public enum ResultadoSolicitacao {
-	COM_RESTRICAO, SEM_RESTRICAO;
+public enum StatusCartao {
+	ELEGIVEL, NAO_ELEGIVEL;
 }
