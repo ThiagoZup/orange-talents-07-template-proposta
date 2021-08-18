@@ -37,7 +37,7 @@ public class VinculoCartaoService {
 			for (Proposta proposta : propostas) {
 				processa(proposta);
 			}
-		} else {System.out.println("teste");}
+		} //else {System.out.println("teste");}
 	}
 
 	private void processa(Proposta proposta) {
@@ -52,7 +52,7 @@ public class VinculoCartaoService {
 			manager.persist(cartao);
 			proposta.setCartao(cartao);
 			manager.merge(proposta);
-			System.out.println(response.getStatusCodeValue());
+			//System.out.println(response.getStatusCodeValue());
 		}
 	} 
 }

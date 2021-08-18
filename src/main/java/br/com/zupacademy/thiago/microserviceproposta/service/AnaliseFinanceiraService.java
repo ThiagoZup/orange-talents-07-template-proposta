@@ -35,6 +35,7 @@ public class AnaliseFinanceiraService {
 			proposta.setStatusCartao(dto.getResultadoSolicitacao().normaliza());
 		} catch (Exception e) {
 			ObjectMapper mapper = new ObjectMapper();
+			
 			JsonNode actualObj;
 			try {
 				actualObj = mapper.readTree(e.getMessage().substring(7, e.getMessage().length()-1));
