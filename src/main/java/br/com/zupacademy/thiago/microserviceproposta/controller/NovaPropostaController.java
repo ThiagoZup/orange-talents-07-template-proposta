@@ -1,14 +1,12 @@
 package br.com.zupacademy.thiago.microserviceproposta.controller;
 
 import java.net.URI;
-import java.util.List;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +20,7 @@ import br.com.zupacademy.thiago.microserviceproposta.service.AnaliseFinanceiraSe
 
 @RestController
 @RequestMapping("/propostas")
-public class PropostaController {
+public class NovaPropostaController {
 
 	@Autowired
 	private PropostaRepository repository;
@@ -44,13 +42,5 @@ public class PropostaController {
 				.toUri();
 
 		return ResponseEntity.created(uri).build();
-	}
-
-	@GetMapping
-	@Transactional
-	public ResponseEntity<List<Proposta>> busca() {
-		List<Proposta> lista = repository.findAll();
-
-		return ResponseEntity.ok().body(lista);
 	}
 }
