@@ -18,7 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.com.zupacademy.thiago.microserviceproposta.controller.form.NovaPropostaForm;
 import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
 import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaRepository;
-import br.com.zupacademy.thiago.microserviceproposta.service.AnaliseFinanceira;
+import br.com.zupacademy.thiago.microserviceproposta.service.AnaliseFinanceiraService;
 
 @RestController
 @RequestMapping("/propostas")
@@ -28,7 +28,7 @@ public class PropostaController {
 	private PropostaRepository repository;
 
 	@Autowired
-	private AnaliseFinanceira analiseFinanceira;
+	private AnaliseFinanceiraService analiseFinanceira;
 
 	@PostMapping
 	@Transactional

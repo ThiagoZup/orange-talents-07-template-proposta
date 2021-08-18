@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -43,6 +44,9 @@ public class Proposta {
 	
 	@Embedded
 	private Endereco endereco;
+	
+	@OneToOne(mappedBy = "proposta")
+	private Cartao cartao;
 	
 	@Deprecated
 	public Proposta() {
@@ -90,6 +94,14 @@ public class Proposta {
 		return endereco;
 	}
 	
+	public Cartao getCartao() {
+		return cartao;
+	}
+
+	public void setCartao(Cartao cartao) {
+		this.cartao = cartao;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
