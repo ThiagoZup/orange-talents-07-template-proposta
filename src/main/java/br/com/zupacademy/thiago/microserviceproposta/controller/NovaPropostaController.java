@@ -19,7 +19,7 @@ import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaReposito
 import br.com.zupacademy.thiago.microserviceproposta.service.AnaliseFinanceiraService;
 
 @RestController
-@RequestMapping("/propostas")
+@RequestMapping("/api/propostas")
 public class NovaPropostaController {
 
 	@Autowired

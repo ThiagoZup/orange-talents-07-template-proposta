@@ -21,7 +21,7 @@ import br.com.zupacademy.thiago.microserviceproposta.model.Biometria;
 import br.com.zupacademy.thiago.microserviceproposta.model.Cartao;
 
 @RestController
-@RequestMapping("/cartoes")
+@RequestMapping("/api/cartoes")
 public class CartaoController {
 
 	@PersistenceContext

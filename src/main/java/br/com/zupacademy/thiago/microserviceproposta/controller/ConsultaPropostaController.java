@@ -15,7 +15,7 @@ import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
 import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaRepository;
 
 @RestController
-@RequestMapping("/propostas")
+@RequestMapping("/api/propostas")
 public class ConsultaPropostaController {
 
 	@Autowired
