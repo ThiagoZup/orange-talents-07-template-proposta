@@ -48,6 +48,9 @@ public class Cartao {
 	@OneToOne
 	private Proposta proposta;
 	
+	@OneToOne(cascade = CascadeType.MERGE)
+	private Biometria biometria;
+	
 	@Deprecated
 	public Cartao() {
 	}
@@ -132,5 +135,12 @@ public class Cartao {
 	public Proposta getProposta() {
 		return proposta;
 	}
-	
+
+	public Biometria getBiometria() {
+		return biometria;
+	}
+
+	public void setBiometria(Biometria biometria) {
+		this.biometria = biometria;
+	}	
 }
