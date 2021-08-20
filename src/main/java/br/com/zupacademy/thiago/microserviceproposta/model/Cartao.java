@@ -25,7 +25,7 @@ public class Cartao {
 	private LocalDateTime emitidoEm;
 	private String titular;
 	
-	@OneToMany(mappedBy = "cartao", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "cartao", cascade = CascadeType.MERGE)
 	private List<Bloqueio> bloqueios = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "cartao", cascade = CascadeType.PERSIST)
@@ -143,4 +143,8 @@ public class Cartao {
 	public void setBiometria(Biometria biometria) {
 		this.biometria = biometria;
 	}	
+	
+	public void addBloqueio(Bloqueio bloqueio) {
+		this.bloqueios.add(bloqueio);
+	}
 }
