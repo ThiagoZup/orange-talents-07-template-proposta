@@ -16,7 +16,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusCartao;
+import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusProposta;
 
 @Entity
 public class Proposta {
@@ -40,7 +40,7 @@ public class Proposta {
 	private BigDecimal salario;
 	
 	@Enumerated(EnumType.STRING)
-	private StatusCartao statusCartao;
+	private StatusProposta statusCartao;
 	
 	@Embedded
 	private Endereco endereco;
@@ -82,11 +82,11 @@ public class Proposta {
 		return salario;
 	}
 
-	public StatusCartao getStatusCartao() {
+	public StatusProposta getStatusCartao() {
 		return statusCartao;
 	}
 
-	public void setStatusCartao(StatusCartao statusCartao) {
+	public void setStatusCartao(StatusProposta statusCartao) {
 		this.statusCartao = statusCartao;
 	}
 

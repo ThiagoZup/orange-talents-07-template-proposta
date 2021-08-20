@@ -24,6 +24,7 @@ import br.com.zupacademy.thiago.microserviceproposta.exception.UnprocessableEnti
 import br.com.zupacademy.thiago.microserviceproposta.model.Biometria;
 import br.com.zupacademy.thiago.microserviceproposta.model.Bloqueio;
 import br.com.zupacademy.thiago.microserviceproposta.model.Cartao;
+import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusCartao;
 import br.com.zupacademy.thiago.microserviceproposta.service.BloqueiaCartaoService;
 
 @RestController
@@ -35,7 +36,7 @@ public class CartaoController {
 
 	@Autowired
 	private BloqueiaCartaoService bloqueiaCartaoService;
-	
+
 	@PersistenceContext
 	private EntityManager manager;
 
@@ -74,13 +75,18 @@ public class CartaoController {
 		Bloqueio bloqueio = form.toModel(cartao);
 		cartao.addBloqueio(bloqueio);
 
-		tx.execute(status -> {
-			manager.merge(cartao);
-			return null;
-		});
-
-		bloqueiaCartaoService.bloqueia(bloqueio);
+		ResponseEntity<?> response = bloqueiaCartaoService.bloqueia(bloqueio);
+		System.out.println(response.getStatusCodeValue());
 		
+		if (response.getStatusCodeValue() == 200) {
+			cartao.setStatus(StatusCartao.BLOQUEADO);
+			tx.execute(status -> {
+				manager.merge(cartao);
+				return null;
+			});
+		} else {
+			throw new UnprocessableEntityException("Não foi possível atualizar estado do cartão");
+		}
 
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(bloqueio.getId())
 				.toUri();

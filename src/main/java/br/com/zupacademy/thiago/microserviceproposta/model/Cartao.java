@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 
 import br.com.zupacademy.thiago.microserviceproposta.controller.form.NovoCartaoForm;
 import br.com.zupacademy.thiago.microserviceproposta.exception.ObjectNotFoundException;
+import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusCartao;
 import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaRepository;
 
 @Entity
@@ -24,6 +25,7 @@ public class Cartao {
 	private String id;
 	private LocalDateTime emitidoEm;
 	private String titular;
+	private StatusCartao status = StatusCartao.DESBLOQUEADO;
 	
 	@OneToMany(mappedBy = "cartao", cascade = CascadeType.MERGE)
 	private List<Bloqueio> bloqueios = new ArrayList<>();
@@ -102,6 +104,14 @@ public class Cartao {
 
 	public String getTitular() {
 		return titular;
+	}
+
+	public StatusCartao getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusCartao status) {
+		this.status = status;
 	}
 
 	public List<Bloqueio> getBloqueios() {

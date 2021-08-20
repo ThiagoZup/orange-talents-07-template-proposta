@@ -3,7 +3,7 @@ package br.com.zupacademy.thiago.microserviceproposta.controller.dto;
 import java.math.BigDecimal;
 
 import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
-import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusCartao;
+import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusProposta;
 
 public class ConsultaPropostaDto {
 	
@@ -11,7 +11,7 @@ public class ConsultaPropostaDto {
 	private String email;
 	private String nome;
 	private BigDecimal salario;
-	private StatusCartao statusCartao;
+	private StatusProposta statusCartao;
 	private ConsultaPropostaEnderecoDto endereco;
 	private ConsultaPropostaCartaoDto cartao;
 	
@@ -43,7 +43,7 @@ public class ConsultaPropostaDto {
 		return salario;
 	}
 
-	public StatusCartao getStatusCartao() {
+	public StatusProposta getStatusCartao() {
 		return statusCartao;
 	}
 

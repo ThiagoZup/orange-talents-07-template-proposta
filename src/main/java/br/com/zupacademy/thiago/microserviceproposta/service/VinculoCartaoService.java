@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import br.com.zupacademy.thiago.microserviceproposta.controller.form.NovoCartaoForm;
 import br.com.zupacademy.thiago.microserviceproposta.model.Cartao;
 import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
-import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusCartao;
+import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusProposta;
 import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaRepository;
 
 @Service
@@ -32,7 +32,7 @@ public class VinculoCartaoService {
 	@Scheduled(fixedDelay = 5000)
 	@Transactional
 	public void vinculaCartoes() {
-		List<Proposta> propostas = propostaRepository.findByStatusCartaoAndCartao(StatusCartao.ELEGIVEL, null);
+		List<Proposta> propostas = propostaRepository.findFirst10ByStatusCartaoAndCartao(StatusProposta.ELEGIVEL, null);
 		if (propostas.size() > 0) {
 			for (Proposta proposta : propostas) {
 				processa(proposta);

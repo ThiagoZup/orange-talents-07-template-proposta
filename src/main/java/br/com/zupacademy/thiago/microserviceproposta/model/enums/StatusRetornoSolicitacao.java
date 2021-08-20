@@ -4,11 +4,11 @@ public enum StatusRetornoSolicitacao {
 	COM_RESTRICAO, 
 	SEM_RESTRICAO;
 	
-	public StatusCartao normaliza() {
+	public StatusProposta normaliza() {
 		if(this.equals(SEM_RESTRICAO)) {
-			return StatusCartao.ELEGIVEL;
+			return StatusProposta.ELEGIVEL;
 		}else {
-			return StatusCartao.NAO_ELEGIVEL;
+			return StatusProposta.NAO_ELEGIVEL;
 		}
 	}
 }

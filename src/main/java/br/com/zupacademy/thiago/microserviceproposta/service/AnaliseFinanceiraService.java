@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.com.zupacademy.thiago.microserviceproposta.controller.form.SolicitacaoAnaliseForm;
 import br.com.zupacademy.thiago.microserviceproposta.exception.UnprocessableEntityException;
 import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
-import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusCartao;
+import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusProposta;
 import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusRetornoSolicitacao;
 
 @Service
@@ -39,7 +39,7 @@ public class AnaliseFinanceiraService {
 			JsonNode actualObj;
 			try {
 				actualObj = mapper.readTree(e.getMessage().substring(7, e.getMessage().length()-1));
-				StatusCartao statusCartao = StatusRetornoSolicitacao.valueOf(actualObj.get("resultadoSolicitacao").asText())
+				StatusProposta statusCartao = StatusRetornoSolicitacao.valueOf(actualObj.get("resultadoSolicitacao").asText())
 						.normaliza();
 				proposta.setStatusCartao(statusCartao);
 			} catch (Exception e1) {
