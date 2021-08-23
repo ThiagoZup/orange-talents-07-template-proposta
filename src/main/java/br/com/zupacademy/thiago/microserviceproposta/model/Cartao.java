@@ -47,6 +47,10 @@ public class Cartao {
 	@OneToOne(mappedBy = "cartao", cascade = CascadeType.PERSIST)
 	private Vencimento vencimento;
 	
+	@OneToMany(mappedBy = "cartao", cascade = CascadeType.MERGE)
+	private List<Viagem> viagens = new ArrayList<>();
+	
+	
 	@OneToOne
 	private Proposta proposta;
 	
@@ -154,7 +158,15 @@ public class Cartao {
 		this.biometria = biometria;
 	}	
 	
+	public List<Viagem> getViagens() {
+		return viagens;
+	}
+
 	public void addBloqueio(Bloqueio bloqueio) {
 		this.bloqueios.add(bloqueio);
+	}
+	
+	public void addViagem(Viagem viagem) {
+		this.viagens.add(viagem);
 	}
 }

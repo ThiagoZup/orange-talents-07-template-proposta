@@ -54,7 +54,6 @@ public class BloqueioCartaoController {
 		cartao.addBloqueio(bloqueio);
 
 		ResponseEntity<?> response = bloqueiaCartaoService.bloqueia(bloqueio);
-		System.out.println(response.getStatusCodeValue());
 		
 		if (response.getStatusCodeValue() == 200) {
 			cartao.setStatus(StatusCartao.BLOQUEADO);
