@@ -15,9 +15,11 @@ public class Bloqueio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private LocalDateTime bloqueadoEm;
-	private String sistemaResponsavel;
-	private boolean ativo;
+	private LocalDateTime bloqueadoEm = LocalDateTime.now();
+	private String userAgent;
+	private String clientIp;
+	
+	private boolean ativo = true;
 	
 	@ManyToOne
 	private Cartao cartao;
@@ -26,10 +28,17 @@ public class Bloqueio {
 	public Bloqueio() {
 	}
 
-	public Bloqueio(LocalDateTime bloqueadoEm, String sistemaResponsavel, boolean ativo, Cartao cartao) {
+	public Bloqueio(LocalDateTime bloqueadoEm, String clientIp, boolean ativo, Cartao cartao) {
 		this.bloqueadoEm = bloqueadoEm;
-		this.sistemaResponsavel = sistemaResponsavel;
+		this.clientIp = clientIp;
 		this.ativo = ativo;
+		this.cartao = cartao;
+	}
+
+	public Bloqueio(String userAgent, String clientIp, Cartao cartao) {
+		super();
+		this.userAgent = userAgent;
+		this.clientIp = clientIp;
 		this.cartao = cartao;
 	}
 
@@ -41,8 +50,12 @@ public class Bloqueio {
 		return bloqueadoEm;
 	}
 
-	public String getSistemaResponsavel() {
-		return sistemaResponsavel;
+	public String getUserAgent() {
+		return userAgent;
+	}
+
+	public String getClientIp() {
+		return clientIp;
 	}
 
 	public boolean isAtivo() {

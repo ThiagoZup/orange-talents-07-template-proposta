@@ -4,14 +4,13 @@ import java.net.URI;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -38,7 +37,7 @@ public class BloqueioCartaoController {
 	
 
 	@PostMapping("/{id}/bloqueios")
-	public ResponseEntity<?> criaBloqueio(@PathVariable String id, @RequestBody @Valid NovoBloqueioForm form) {
+	public ResponseEntity<?> criaBloqueio(@PathVariable String id, @RequestHeader("X-Forwarded-For") String clientIp, @RequestHeader("User-Agent") String userAgent  ) {
 
 		Cartao cartao = manager.find(Cartao.class, id);
 		if (cartao == null) {
@@ -50,7 +49,7 @@ public class BloqueioCartaoController {
 					throw new UnprocessableEntityException("Cartão já bloqueado");
 			}
 		}
-		Bloqueio bloqueio = form.toModel(cartao);
+		Bloqueio bloqueio = new Bloqueio(userAgent, clientIp, cartao);
 		cartao.addBloqueio(bloqueio);
 
 		ResponseEntity<?> response = bloqueiaCartaoService.bloqueia(bloqueio);

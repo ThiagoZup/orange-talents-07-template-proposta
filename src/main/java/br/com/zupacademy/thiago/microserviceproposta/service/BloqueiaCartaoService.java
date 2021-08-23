@@ -20,7 +20,7 @@ public class BloqueiaCartaoService {
 	public ResponseEntity<?> bloqueia(Bloqueio bloqueio) {
 
 		RestTemplate restTemplate = new RestTemplate();
-		Map<String, Object> request = Map.of("sistemaResponsavel", bloqueio.getSistemaResponsavel());
+		Map<String, Object> request = Map.of("sistemaResponsavel", bloqueio.getClientIp());
 		ResponseEntity<?> response = restTemplate.postForEntity("http://localhost:8888/api/cartoes/"+bloqueio.getCartao().getId()+"/bloqueios",
 				request, String.class);
 		return response;
