@@ -1,4 +1,4 @@
-package br.com.zupacademy.thiago.microserviceproposta.controller.form;
+package br.com.zupacademy.thiago.microserviceproposta.func.biometria_cartao;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;

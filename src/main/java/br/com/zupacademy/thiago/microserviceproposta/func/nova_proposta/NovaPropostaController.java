@@ -1,4 +1,4 @@
-package br.com.zupacademy.thiago.microserviceproposta.controller;
+package br.com.zupacademy.thiago.microserviceproposta.func.nova_proposta;
 
 import java.net.URI;
 
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.zupacademy.thiago.microserviceproposta.controller.form.NovaPropostaForm;
 import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
 import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaRepository;
 import br.com.zupacademy.thiago.microserviceproposta.service.AnaliseFinanceiraService;

@@ -1,4 +1,4 @@
-package br.com.zupacademy.thiago.microserviceproposta.controller.form;
+package br.com.zupacademy.thiago.microserviceproposta.func.nova_proposta;
 
 import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusRetornoSolicitacao;
 

@@ -1,4 +1,4 @@
-package br.com.zupacademy.thiago.microserviceproposta.controller.form;
+package br.com.zupacademy.thiago.microserviceproposta.func.nova_proposta;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -33,7 +33,7 @@ public class NovaPropostaForm {
 	private BigDecimal salario;
 	
 	@Valid
-	private NovoEnderecoForm endereco;
+	private EnderecoForm endereco;
 
 	public String getDocumento() {
 		return documento;
@@ -51,7 +51,7 @@ public class NovaPropostaForm {
 		return salario;
 	}
 
-	public NovoEnderecoForm getEndereco() {
+	public EnderecoForm getEndereco() {
 		return endereco;
 	}
 

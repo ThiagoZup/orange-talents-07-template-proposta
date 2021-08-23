@@ -1,4 +1,4 @@
-package br.com.zupacademy.thiago.microserviceproposta.controller;
+package br.com.zupacademy.thiago.microserviceproposta.func.consulta_proposta;
 
 import java.util.Optional;
 
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zupacademy.thiago.microserviceproposta.controller.dto.ConsultaPropostaDto;
 import br.com.zupacademy.thiago.microserviceproposta.exception.ObjectNotFoundException;
 import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
 import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaRepository;

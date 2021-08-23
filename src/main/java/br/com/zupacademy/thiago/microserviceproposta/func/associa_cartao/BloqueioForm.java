@@ -1,20 +1,23 @@
-package br.com.zupacademy.thiago.microserviceproposta.controller.form;
+package br.com.zupacademy.thiago.microserviceproposta.func.associa_cartao;
 
 import java.time.LocalDateTime;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import br.com.zupacademy.thiago.microserviceproposta.model.Bloqueio;
 import br.com.zupacademy.thiago.microserviceproposta.model.Cartao;
 
-public class NovoBloqueioForm {
-	
-	@NotBlank 
-	private String sistemaResponsavel;
-	@NotNull
-	private boolean ativo;
+public class BloqueioForm {
 
+	private String id;
+	private LocalDateTime bloqueadoEm;
+	private String sistemaResponsavel;
+	private boolean ativo;
+	
+	public String getId() {
+		return id;
+	}
+	public LocalDateTime getBloqueadoEm() {
+		return bloqueadoEm;
+	}
 	public String getSistemaResponsavel() {
 		return sistemaResponsavel;
 	}
@@ -23,7 +26,7 @@ public class NovoBloqueioForm {
 	}
 	
 	public Bloqueio toModel(Cartao cartao) {
-		return new Bloqueio(LocalDateTime.now(), sistemaResponsavel, ativo, cartao);
+		return new Bloqueio(bloqueadoEm, sistemaResponsavel, ativo, cartao);
 	}
 	
 }

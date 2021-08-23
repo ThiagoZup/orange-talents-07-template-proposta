@@ -1,4 +1,4 @@
-package br.com.zupacademy.thiago.microserviceproposta.controller.form;
+package br.com.zupacademy.thiago.microserviceproposta.func.associa_cartao;
 
 import java.time.LocalDateTime;
 

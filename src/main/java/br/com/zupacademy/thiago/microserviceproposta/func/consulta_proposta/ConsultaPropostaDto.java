@@ -1,4 +1,4 @@
-package br.com.zupacademy.thiago.microserviceproposta.controller.dto;
+package br.com.zupacademy.thiago.microserviceproposta.func.consulta_proposta;
 
 import java.math.BigDecimal;
 

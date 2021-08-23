@@ -12,8 +12,8 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.zupacademy.thiago.microserviceproposta.controller.form.SolicitacaoAnaliseForm;
 import br.com.zupacademy.thiago.microserviceproposta.exception.UnprocessableEntityException;
+import br.com.zupacademy.thiago.microserviceproposta.func.nova_proposta.SolicitacaoAnaliseForm;
 import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
 import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusProposta;
 import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusRetornoSolicitacao;

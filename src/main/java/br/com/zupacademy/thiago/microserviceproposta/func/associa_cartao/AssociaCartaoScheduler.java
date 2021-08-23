@@ -1,4 +1,4 @@
-package br.com.zupacademy.thiago.microserviceproposta.service;
+package br.com.zupacademy.thiago.microserviceproposta.func.associa_cartao;
 
 import java.util.List;
 import java.util.Map;
@@ -14,14 +14,13 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import br.com.zupacademy.thiago.microserviceproposta.controller.form.NovoCartaoForm;
 import br.com.zupacademy.thiago.microserviceproposta.model.Cartao;
 import br.com.zupacademy.thiago.microserviceproposta.model.Proposta;
 import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusProposta;
 import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaRepository;
 
 @Service
-public class VinculoCartaoService {
+public class AssociaCartaoScheduler {
 
 	@PersistenceContext
 	private EntityManager manager;

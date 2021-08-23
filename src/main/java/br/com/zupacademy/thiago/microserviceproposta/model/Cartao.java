@@ -13,8 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import br.com.zupacademy.thiago.microserviceproposta.controller.form.NovoCartaoForm;
 import br.com.zupacademy.thiago.microserviceproposta.exception.ObjectNotFoundException;
+import br.com.zupacademy.thiago.microserviceproposta.func.associa_cartao.NovoCartaoForm;
 import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusCartao;
 import br.com.zupacademy.thiago.microserviceproposta.repository.PropostaRepository;
 
