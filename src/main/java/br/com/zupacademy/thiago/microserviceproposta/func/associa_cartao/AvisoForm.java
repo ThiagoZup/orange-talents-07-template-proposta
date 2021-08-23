@@ -1,16 +1,19 @@
 package br.com.zupacademy.thiago.microserviceproposta.func.associa_cartao;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.zupacademy.thiago.microserviceproposta.model.Aviso;
 import br.com.zupacademy.thiago.microserviceproposta.model.Cartao;
 
 public class AvisoForm {
 
-	private LocalDateTime validoAte;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate validoAte;
 	private String destino;
 	
-	public LocalDateTime getValidoAte() {
+	public LocalDate getValidoAte() {
 		return validoAte;
 	}
 	public String getDestino() {
