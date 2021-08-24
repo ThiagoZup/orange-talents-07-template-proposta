@@ -162,4 +162,8 @@ public class Cartao {
 	public void addAviso(Aviso aviso) {
 		this.avisos.add(aviso);
 	}
+	
+	public void addCarteira(Carteira carteira) {
+		this.carteiras.add(carteira);
+	}
 }
