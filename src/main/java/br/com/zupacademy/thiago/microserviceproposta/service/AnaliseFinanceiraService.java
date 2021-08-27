@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.encrypt.TextEncryptor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,9 +25,9 @@ public class AnaliseFinanceiraService {
 	@PersistenceContext
 	private EntityManager manager;
 
-	public void processa(Proposta proposta) {
+	public void processa(Proposta proposta, TextEncryptor encryptor) {
 		RestTemplate restTemplate = new RestTemplate();
-		Map<String, Object> request = Map.of("documento", proposta.getDocumento(), "nome", proposta.getNome(),
+		Map<String, Object> request = Map.of("documento", encryptor.decrypt(proposta.getDocumento()), "nome", proposta.getNome(),
 				"idProposta", proposta.getId());
 		try {
 			ResponseEntity<SolicitacaoAnaliseForm> response = restTemplate

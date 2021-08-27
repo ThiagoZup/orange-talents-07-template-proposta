@@ -29,6 +29,9 @@ public class Proposta {
 	private String documento;
 	
 	@NotBlank
+	private String documentoHash;
+	
+	@NotBlank
 	@Email
 	private String email;
 	
@@ -52,10 +55,11 @@ public class Proposta {
 	public Proposta() {
 	}
 
-	public Proposta(@NotBlank String documento, @NotBlank @Email String email, @NotBlank String nome, Endereco endereco,
+	public Proposta(@NotBlank String documento, @NotBlank String documentoHash, @NotBlank @Email String email, @NotBlank String nome, Endereco endereco,
 			@NotNull @Positive BigDecimal salario) {
 		super();
 		this.documento = documento;
+		this.documentoHash = documentoHash;
 		this.email = email;
 		this.nome = nome;
 		this.endereco = endereco;
@@ -68,6 +72,10 @@ public class Proposta {
 
 	public String getDocumento() {
 		return documento;
+	}
+
+	public String getDocumentoHash() {
+		return documentoHash;
 	}
 
 	public String getEmail() {

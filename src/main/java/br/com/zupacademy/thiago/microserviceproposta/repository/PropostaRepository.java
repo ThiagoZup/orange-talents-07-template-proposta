@@ -11,7 +11,7 @@ import br.com.zupacademy.thiago.microserviceproposta.model.enums.StatusProposta;
 
 public interface PropostaRepository extends JpaRepository<Proposta, Long> {
 
-	Optional<Proposta> findByDocumento(String documento);
+	Optional<Proposta> findByDocumentoHash(String documentoHash);
 	
 	List<Proposta> findFirst10ByStatusCartaoAndCartao(StatusProposta statusCartao, Cartao cartao);
 }
